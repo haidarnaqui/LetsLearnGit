@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Using Event Handling</title>
+           <script language="JavaScript">
+              
+              function MyFunction()
+               {
+                   var fname;
+                   fname=document.myform.txtfname.value;
+                   
+                   var lname;
+                   lname=document.myform.txtlname.value;
+                   
+                   if(fname=="")
+                     document.getElementById("s1").innerHTML="<font color=red>*</font>";
+                     else
+                     document.getElementById("s1").innerHTML="";
+                  
+                   if(lname=="")
+                      document.getElementById("s2").innerHTML="<font color=red>*</font>";
+                   else
+                   document.getElementById("s2").innerHTML="";
+
+                   if(fname!="" && lname!="")
+                   {
+                            document.getElementById("mydata").innerHTML="<center>Hi " +fname+ " " +lname+"</center>";
+                            document.getElementById("s1").innerHTML="";
+                            document.getElementById("s2").innerHTML="";
+                   }
+               }
+               function cleardata()
+               {
+                document.myform.txtfname.value="";
+                document.myform.txtlname.value="";
+                document.getElementById("s1").innerHTML="";
+                document.getElementById("s2").innerHTML="";
+                document.getElementById("mydata").innerHTML="";
+               }
+           </script>
+    </head>
+    <body bgcolor="yellow">
+        <form name="myform">
+            <center>
+                <table border="2">
+                    <tr>
+                        <th>Enter The First Name</th>
+                        <td><input type="text" name="txtfname"><span id="s1"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Enter The Last Name</th>
+                        <td><input type="text" name="txtlname"><span id="s2"></span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="btn1" value="Show Name" onclick="MyFunction()"></td>
+                        <td><input type="button" name="btn2" value="Clear All" onclick="cleardata()"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                          <span id="mydata"></span>
+                        </th>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </body>
+</html>
